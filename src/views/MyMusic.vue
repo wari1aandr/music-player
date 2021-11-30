@@ -1,6 +1,6 @@
 <template>
-    <div class="home">
-      home
+    <div class="my-music">
+      my music
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Home',
+  name: 'MyMusic',
   components: {
   }
 });
