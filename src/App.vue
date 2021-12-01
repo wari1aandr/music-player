@@ -1,7 +1,7 @@
 <template>
   <div class="row" id="app">
     <NavBar />
-    
+
     <div class="col offset-2">
       <router-view></router-view>
     </div>
@@ -23,4 +23,11 @@ export default Vue.extend({
 <style lang="scss">
 @import '~bootstrap/dist/css/bootstrap.css';
 @import '~bootstrap-icons/font/bootstrap-icons.css';
+
+#app {
+  color: white;
+  background: -webkit-linear-gradient(0deg, rgb(17, 17, 17), rgb(49, 49, 49));
+  background: -moz-linear-gradient(0deg, rgb(17, 17, 17), rgb(49, 49, 49));
+  background: linear-gradient(0deg, rgb(17, 17, 17), rgb(49, 49, 49));
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
-    <div class="home">
-      home
-    </div>
+  <div class="home">
+    
+  </div>
 </template>
 
 <script lang="ts">
@@ -14,6 +14,6 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 </style>
