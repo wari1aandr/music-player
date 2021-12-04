@@ -24,10 +24,14 @@ export default Vue.extend({
 @import '~bootstrap/dist/css/bootstrap.css';
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 
-#app {
+html, body {
+  height: 100%;
+}
+body {
   color: white;
-  background: -webkit-linear-gradient(0deg, rgb(17, 17, 17), rgb(49, 49, 49));
-  background: -moz-linear-gradient(0deg, rgb(17, 17, 17), rgb(49, 49, 49));
-  background: linear-gradient(0deg, rgb(17, 17, 17), rgb(49, 49, 49));
+  background: -webkit-linear-gradient(0deg, rgb(17, 17, 17), rgb(49, 49, 49)) no-repeat;
+  background: -moz-linear-gradient(0deg, rgb(17, 17, 17), rgb(49, 49, 49)) no-repeat;
+  background: linear-gradient(0deg, rgb(17, 17, 17), rgb(49, 49, 49)) no-repeat;
+  background-attachment: fixed;
 }
 </style>

@@ -2,10 +2,8 @@
   <div class="my-music__item">
     <img class="my-music__item-img" src="@/assets/item-img.jpg" alt="item__img">
 
-    <div class="my-music__item-text">
-      <p class="my-music__item-title">Playlist 1</p>
-      <p class="my-music__item-author">Author: Mariia</p>
-    </div>
+    <p class="my-music__item-title">Playlist 1</p>
+    <p class="my-music__item-text my-music__item-author">Author: Mariia</p>
   </div>
 </template>
 
@@ -22,25 +20,45 @@ export default Vue.extend({
     &__item {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      width: 20%;
-      height: 250px;
-      background: rgb(40, 40, 40);
+
+      width: 17%;
+      height: 270px;
+      margin: 0 25px 25px 0;
+
+      background: rgb(32, 32, 32);
+      transition: 0.5s;
+      border-radius: 5px;
+
+      -webkit-box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.2);
+      box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        background: rgb(43, 43, 43);
+      }
+
       &-img {
         margin-top: 20px;
-        width: 70%;
+        width: 75%;
+        -webkit-box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.45);
+        -moz-box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.45);
+        box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.45);
       }
+
       &-title {
-        margin: 10px 0 0 0;
-        font-size: 20px;
+        margin: 20px 0 0 0;
+        width: 75%;
+
+        font-size: 23px;
         font-weight: 500;
-        text-align: center;
       }
+      
       &-author {
-        margin: 0 0 20px 0;
-        font-size: 15px;
-        text-align: center;
+        width: 75%;
+        font-size: 18px;
+        font-weight: 400;
+        color: lightgrey;
       }
     }
   }

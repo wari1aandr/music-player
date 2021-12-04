@@ -2,14 +2,16 @@
     <div class="my-music__list">
         <h2 class="my-music__h2">Playlists</h2>
 
-        <div class="my-music__favorites">
-            <div class="my-music__favorites-text">
-                <p class="my-music__favorites-title">Любимые треки</p>
-                <p class="my-music__favorites-count">1 любимых треков</p>
+        <div class="my-music__row">
+            <div class="my-music__favorites">
+                <div class="my-music__favorites-text">
+                    <p class="my-music__favorites-title">Любимые треки</p>
+                    <p class="my-music__favorites-count">1 любимых треков</p>
+                </div>
             </div>
-        </div>
 
-        <ListItem />
+            <ListItem />
+        </div>
     </div>
 </template>
 
@@ -29,15 +31,24 @@ export default Vue.extend({
         &__h2 {
             margin: 70px 0 15px 0;
         }
+        &__row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
         &__favorites {
-            width: 40%;
-            height: 250px;
+            margin: 0 25px 0 0;
+            width: 36%;
+            height: 270px;
+
+            display: flex;
+            align-items: flex-end;
+
             border-radius: 5px;
             background: -webkit-linear-gradient(315deg, rgb(204, 156, 232), rgb(167, 79, 219), rgb(132, 49, 180) 86%);
             background: -moz-linear-gradient(315deg, rgb(204, 156, 232), rgb(167, 79, 219), rgb(132, 49, 180) 86%);
             background: linear-gradient(315deg, rgb(204, 156, 232), rgb(167, 79, 219), rgb(132, 49, 180) 86%);
-            display: flex;
-            align-items: flex-end;
+            
             &-text {
                 margin: 0 0 25px 20px;
             }
