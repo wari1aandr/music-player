@@ -1,0 +1,27 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "login": "Mariia"
+        }
+    ],
+    "playlists": [
+        {
+            "id": 1,
+            "title": "new playlist",
+            "img": "new.jpg",
+            "author_id": 1,
+            "tracks_id": [
+                1, 2, 3
+            ]
+        }
+    ],
+    "tracks": [
+        {
+            "id": 1,
+            "title": "track",
+            "author": "author",
+            "img": "trackimg.jpg"
+        }
+    ]
+}
