@@ -10,18 +10,18 @@
                 </div>
             </div>
 
-            <ListItem />
+            <PlaylistItem />
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import ListItem from '@/components/MyMusic/ListItem.vue';
+import PlaylistItem from '@/components/PlaylistItem.vue';
 
 export default Vue.extend({
   components: {
-    ListItem
+    PlaylistItem
   }
 });
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <div class="my-music__item">
-    <img class="my-music__item-img" src="@/assets/item-img.jpg" alt="item__img">
+  <div class="playlist__item">
+    <img class="playlist__item-img" src="@/assets/item-img.jpg" alt="item__img">
 
-    <p class="my-music__item-title">Playlist 1</p>
-    <p class="my-music__item-text my-music__item-author">Author: Mariia</p>
+    <p class="playlist__item-title">Playlist 1</p>
+    <p class="playlist__item-text playlist__item-author">Author: Mariia</p>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-  .my-music {
+  .playlist {
     &__item {
       display: flex;
       flex-direction: column;
