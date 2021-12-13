@@ -20,6 +20,8 @@
 
         <div class="search__tracks">
           <h4>Tracks</h4>
+
+          <TrackItem />
         </div>
       </div>
 
@@ -35,11 +37,12 @@
 import Vue from 'vue';
 import BestResult from '@/components/Search/BestResult.vue';
 import PlaylistItem from '@/components/PlaylistItem.vue';
+import TrackItem from '@/components/TrackItem.vue';
 
 export default Vue.extend({
   name: 'Search',
   components: {
-    BestResult, PlaylistItem
+    BestResult, PlaylistItem,TrackItem
   }
 });
 </script>
@@ -79,6 +82,11 @@ export default Vue.extend({
         font-size: 35px;
         font-weight: 600;
       }
+    }
+
+    &__tracks {
+      width: 60%;
+      margin: 0 0 0 30px;
     }
 
   }

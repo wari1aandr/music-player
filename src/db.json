@@ -2,7 +2,13 @@
     "users": [
         {
             "id": 1,
-            "login": "Mariia"
+            "login": "Mariia",
+            "favorites_id": [
+                1, 2
+            ],
+            "playlists_id": [
+                1
+            ]
         }
     ],
     "playlists": [
@@ -12,7 +18,16 @@
             "img": "new.jpg",
             "author_id": 1,
             "tracks_id": [
-                1, 2, 3
+                1, 2
+            ]
+        },
+        {
+            "id": 2,
+            "title": "music",
+            "img": "new.jpg",
+            "author_id": 1,
+            "tracks_id": [
+                3
             ]
         }
     ],
@@ -21,7 +36,31 @@
             "id": 1,
             "title": "track",
             "author": "author",
-            "img": "trackimg.jpg"
+            "img": "1.jpg",
+            "file_name": {
+                "mp3": "1.mp3",
+                "ogg": "1.ogg"
+            }
+        },
+        {
+            "id": 2,
+            "title": "mus",
+            "author": "i",
+            "img": "2.jpg",
+            "file_name": {
+                "mp3": "2.mp3",
+                "ogg": "2.ogg"
+            }
+        },
+        {
+            "id": 3,
+            "title": "new track",
+            "author": "lana",
+            "img": "3.jpg",
+            "file_name": {
+                "mp3": "3.mp3",
+                "ogg": "3.ogg"
+            }
         }
     ]
 }

@@ -16,6 +16,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/mixins.scss';
+
   .playlist {
     &__item {
       display: flex;
@@ -30,9 +32,7 @@ export default Vue.extend({
       transition: 0.5s;
       border-radius: 5px;
 
-      -webkit-box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.2);
-      -moz-box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.2);
-      box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.2);
+      @include shadow(0.2);
 
       &:hover {
         background: rgb(43, 43, 43);
@@ -41,9 +41,7 @@ export default Vue.extend({
       &-img {
         margin-top: 20px;
         width: 75%;
-        -webkit-box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.45);
-        -moz-box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.45);
-        box-shadow: -1px 7px 16px 1px rgba(0, 0, 0, 0.45);
+        @include shadow(0.45);
       }
 
       &-title {
