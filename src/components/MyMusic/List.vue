@@ -10,7 +10,12 @@
                 </div>
             </div>
 
-            <PlaylistItem />
+            <PlaylistItem 
+                v-for="(playlist, idx) of playlists"
+                :key="idx"
+                :playlist="playlist"
+            />
+
         </div>
     </div>
 </template>
@@ -18,10 +23,29 @@
 <script lang="ts">
 import Vue from 'vue';
 import PlaylistItem from '@/components/PlaylistItem.vue';
+import { Playlist } from '@/types';
+
 
 export default Vue.extend({
   components: {
     PlaylistItem
+  },
+  data() {
+    return {
+        playlists: [],
+        authenticatedUserId: 1
+    }
+  },
+  mounted() {
+    this.fetchPlaylists();
+  },
+  methods: {
+    async fetchPlaylists(): Promise<Array<Playlist>> {
+        const res = await fetch('http://localhost:3000/playlists?author_id=' + this.authenticatedUserId)
+        const playlists = await res.json()
+        this.playlists = playlists;
+        return playlists;
+    }
   }
 });
 </script>

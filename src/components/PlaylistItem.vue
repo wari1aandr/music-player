@@ -1,17 +1,39 @@
 <template>
   <div class="playlist__item">
-    <img class="playlist__item-img" src="@/assets/item-img.jpg" alt="item__img">
+    <img class="playlist__item-img" :src="require(`@/assets/${playlist.img}`)" alt="item__img">
 
-    <p class="playlist__item-title">Playlist 1</p>
-    <p class="playlist__item-text playlist__item-author">Author: Mariia</p>
+    <p class="playlist__item-title"> {{ playlist.title }} </p>
+    <p class="playlist__item-text playlist__item-author"> {{ this.authorLogin }} </p>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
+import { Playlist } from '@/types';
 
 export default Vue.extend({
-
+  props: {
+    playlist: {
+      type: Object as PropType<Playlist>,
+      required: true
+    }
+  },
+  data() {
+    return {
+      authorLogin: '' as String
+    }
+  },
+  mounted() {
+    this.getAuthorLogin();
+  },
+  methods: {
+    async getAuthorLogin(): Promise<String> {
+        const res = await fetch('http://localhost:3000/users?id=' + this.playlist.author_id)
+        const user = await res.json()
+        this.authorLogin = user[0].login;
+        return user.login;
+    }
+  }
 });
 </script>
 
