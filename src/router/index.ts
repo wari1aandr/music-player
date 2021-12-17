@@ -18,6 +18,12 @@ const routes: Array<RouteConfig> = [
     path: '/search',
     name: 'Search',
     component: () => import('../views/Search.vue')
+  },
+  {
+    path: '/playlist:id' ,
+    name: 'Playlist',
+    component: () => import('../views/Playlist.vue'),
+    props: true
   }
 ]
 

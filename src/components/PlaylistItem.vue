@@ -1,9 +1,11 @@
 <template>
   <div class="playlist__item">
-    <img class="playlist__item-img" :src="require(`@/assets/${playlist.img}`)" alt="item__img">
+    <router-link :to="{ name: 'Playlist', params: { id: playlist.id, authorLogin: authorLogin, playlist: playlist } }" class="playlist__item-wrapper">
+      <img class="playlist__item-img" :src="require(`@/assets/${playlist.img}`)" alt="item__img">
 
-    <p class="playlist__item-title"> {{ playlist.title }} </p>
-    <p class="playlist__item-text playlist__item-author"> {{ this.authorLogin }} </p>
+      <p class="playlist__item-title"> {{ playlist.title }} </p>
+      <p class="playlist__item-text playlist__item-author"> {{ this.authorLogin }} </p>
+    </router-link>
   </div>
 </template>
 
@@ -27,11 +29,11 @@ export default Vue.extend({
     this.getAuthorLogin();
   },
   methods: {
-    async getAuthorLogin(): Promise<String> {
-        const res = await fetch('http://localhost:3000/users?id=' + this.playlist.author_id)
-        const user = await res.json()
-        this.authorLogin = user[0].login;
-        return user.login;
+    async getAuthorLogin(): Promise<void> {
+      const res = await fetch('http://localhost:3000/users?id=' + this.playlist.author_id);
+      const user = await res.json();
+
+      this.authorLogin = user[0].login;
     }
   }
 });
@@ -42,10 +44,6 @@ export default Vue.extend({
 
   .playlist {
     &__item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
       width: 17%;
       height: 270px;
       margin: 0 25px 25px 0;
@@ -59,6 +57,12 @@ export default Vue.extend({
       &:hover {
         background: rgb(43, 43, 43);
       }
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+      }
 
       &-img {
         margin-top: 20px;
@@ -70,6 +74,7 @@ export default Vue.extend({
         margin: 20px 0 0 0;
         width: 75%;
 
+        color: white;
         font-size: 23px;
         font-weight: 500;
       }

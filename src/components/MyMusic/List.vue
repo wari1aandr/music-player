@@ -5,8 +5,8 @@
         <div class="my-music__row">
             <div class="my-music__favorites">
                 <div class="my-music__favorites-text">
-                    <p class="my-music__favorites-title">Любимые треки</p>
-                    <p class="my-music__favorites-count">1 любимых треков</p>
+                    <p class="my-music__favorites-title">Favorite tracks</p>
+                    <p class="my-music__favorites-count">1 favorite tracks</p>
                 </div>
             </div>
 
@@ -32,19 +32,19 @@ export default Vue.extend({
   },
   data() {
     return {
-        playlists: [],
-        authenticatedUserId: 1
+        playlists: [] as Array<Playlist>,
+        authenticatedUserId: 1 as Number
     }
   },
   mounted() {
     this.fetchPlaylists();
   },
   methods: {
-    async fetchPlaylists(): Promise<Array<Playlist>> {
-        const res = await fetch('http://localhost:3000/playlists?author_id=' + this.authenticatedUserId)
-        const playlists = await res.json()
+    async fetchPlaylists(): Promise<void> {
+        const res = await fetch('http://localhost:3000/playlists?author_id=' + this.authenticatedUserId);
+        const playlists = await res.json();
+        
         this.playlists = playlists;
-        return playlists;
     }
   }
 });
