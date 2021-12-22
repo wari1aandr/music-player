@@ -11,7 +11,7 @@
             </div>
 
             <PlaylistItem 
-                v-for="(playlist, idx) of playlists"
+                v-for="(playlist, idx) of getAllPlaylists"
                 :key="idx"
                 :playlist="playlist"
             />
@@ -22,31 +22,22 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { mapGetters, mapActions } from 'vuex';
+
 import PlaylistItem from '@/components/PlaylistItem.vue';
-import { Playlist } from '@/types';
 
 
 export default Vue.extend({
   components: {
     PlaylistItem
   },
-  data() {
-    return {
-        playlists: [] as Array<Playlist>,
-        authenticatedUserId: 1 as Number
-    }
+  methods: {
+    ...mapActions('playlist', ['fetchPlaylists']),
   },
+  computed: mapGetters('playlist', ['getAllPlaylists']),
   mounted() {
     this.fetchPlaylists();
   },
-  methods: {
-    async fetchPlaylists(): Promise<void> {
-        const res = await fetch('http://localhost:3000/playlists?author_id=' + this.authenticatedUserId);
-        const playlists = await res.json();
-        
-        this.playlists = playlists;
-    }
-  }
 });
 </script>
 

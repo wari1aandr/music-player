@@ -16,26 +16,16 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { Playlist } from '@/types';
+import { Playlist } from '@/store/types';
 
 export default Vue.extend({
-  name: 'Playlist',
-  components: {
-  },
-  props: {
-    id: {
-        type: Number,
-        required: true
+    name: 'Playlist',
+    props: {
+        playlist: {
+            type: Object as PropType<Playlist>,
+            required: true
+        }
     },
-    authorLogin: {
-        type: String,
-        required: true
-    },
-    playlist: {
-      type: Object as PropType<Playlist>,
-      required: true
-    }
-  },
 });
 </script>
 

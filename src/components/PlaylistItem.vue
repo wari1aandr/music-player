@@ -1,17 +1,15 @@
 <template>
-  <div class="playlist__item">
-    <router-link :to="{ name: 'Playlist', params: { id: playlist.id, authorLogin: authorLogin, playlist: playlist } }" class="playlist__item-wrapper">
-      <img class="playlist__item-img" :src="require(`@/assets/${playlist.img}`)" alt="item__img">
+  <div class="playlist__item" @click="shareData()">
+    <img class="playlist__item-img" :src="require(`@/assets/${playlist.img}`)" alt="item__img">
 
-      <p class="playlist__item-title"> {{ playlist.title }} </p>
-      <p class="playlist__item-text playlist__item-author"> {{ this.authorLogin }} </p>
-    </router-link>
+    <p class="playlist__item-title"> {{ playlist.title }} </p>
+    <p class="playlist__item-text playlist__item-author"> {{ this.authorLogin }} </p>
   </div>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { Playlist } from '@/types';
+import { Playlist } from '@/store/types';
 
 export default Vue.extend({
   props: {
@@ -20,22 +18,28 @@ export default Vue.extend({
       required: true
     }
   },
-  data() {
-    return {
-      authorLogin: '' as String
-    }
-  },
-  mounted() {
-    this.getAuthorLogin();
-  },
-  methods: {
-    async getAuthorLogin(): Promise<void> {
-      const res = await fetch('http://localhost:3000/users?id=' + this.playlist.author_id);
-      const user = await res.json();
+  // data() {
+  //   return {
+  //     authorLogin: '' as string
+  //   }
+  // },
+  // mounted() {
+  //   this.getAuthorLogin();
+  // },
+  // methods: {
+  //   async getAuthorLogin(): Promise<void> {
+  //     const res = await fetch('http://localhost:3000/users?id=' + this.playlist.author_id);
+  //     const user = await res.json();
 
-      this.authorLogin = user[0].login;
-    }
-  }
+  //     this.authorLogin = user[0].login;
+  //   },
+  //   shareData(): void {
+  //     this.$router.push({ 
+  //       name: 'Playlist', 
+  //       params: { id: this.playlist.id.toString(), authorLogin: this.authorLogin}
+  //     });
+  //   }
+  // }
 });
 </script>
 
