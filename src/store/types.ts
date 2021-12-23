@@ -13,7 +13,8 @@ export type Playlist = {
 };
 
 export interface PlaylistState {
-    items: Array<Playlist>
+    items: Array<Playlist>,
+    authorLogin: string
 }
 
 export type Context = ActionContext<PlaylistState, RootState>

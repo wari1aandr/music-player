@@ -42,7 +42,7 @@ import TrackItem from '@/components/TrackItem.vue';
 export default Vue.extend({
   name: 'Search',
   components: {
-    BestResult, PlaylistItem,TrackItem
+    BestResult, PlaylistItem, TrackItem
   }
 });
 </script>

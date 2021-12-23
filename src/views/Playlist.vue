@@ -7,24 +7,42 @@
             <div>
                 <p class="playlist__info-text">playlist</p>
                 <p class="playlist__info-title"> {{ this.playlist.title }} </p>
-                <p class="playlist__info-bottom"> {{ this.authorLogin }} <span class="playlist__info-content"> {{ this.playlist.tracks_id.length }} tracks</span></p>
+                <p class="playlist__info-bottom"> {{ getAuthorLogin }} <span class="playlist__info-content"> {{ this.playlist.tracks_id.length }} tracks</span></p>
             </div>
         </div>
+    </div>
+    <div>
+        <i class="bi bi-play-circle-fill"></i>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
+import { mapGetters, mapActions } from 'vuex';
 import { Playlist } from '@/store/types';
 
 export default Vue.extend({
     name: 'Playlist',
     props: {
-        playlist: {
-            type: Object as PropType<Playlist>,
+        id: {
+            type: String,
             required: true
         }
+    },
+    data() {
+        return {
+            playlist: {} as Playlist,
+        }
+    },
+    methods: {
+        getCurrentPlaylist(id: number): void {
+            this.playlist = this.getAllPlaylists.find((item: Playlist) => item.id == id);
+        }
+    },
+    computed: mapGetters('playlist', ['getAllPlaylists', 'getAuthorLogin']),
+    created() {
+        this.getCurrentPlaylist(+this.id);
     },
 });
 </script>
