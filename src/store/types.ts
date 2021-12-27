@@ -18,3 +18,14 @@ export interface PlaylistState {
 }
 
 export type Context = ActionContext<PlaylistState, RootState>
+
+export type Track = {
+    id: number,
+    title: string,
+    author: string,
+    img: string,
+    file_name: {
+        mp3: string,
+        ogg: string
+    }
+};

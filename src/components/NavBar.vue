@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar col-2 px-1 position-fixed" id="sticky-sidebar">
+    <div class="navbar px-1 position-fixed" id="sticky-sidebar">
         <div class="nav flex-column flex-nowrap vh-100 overflow-auto text-white p-2">
             <h1 class="h1">
                 <router-link to="/" class="nav-link text-white text-decoration-none white">Music Player</router-link>
@@ -27,5 +27,6 @@ export default Vue.extend({
 <style lang="scss" scoped>
     .navbar {
         background-color: black;
+        width: 18%;
     }
 </style>

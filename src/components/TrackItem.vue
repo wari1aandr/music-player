@@ -1,11 +1,12 @@
 <template>
   <li class="track">
     <div class="track__wrapper">
-        <img class="track__img" src="@/assets/1.jpg" alt="1_img">
+        <p class="track__id"> {{ id }} </p>
+        <img class="track__img" :src="require(`@/assets/data/img/${track.img}`)" alt="1_img">
 
         <div class="track__text">
-            <p class="track__title">Title</p>
-            <p class="track__author">Author</p>
+            <p class="track__title"> {{ track.title }} </p>
+            <p class="track__author"> {{ track.author }} </p>
         </div>
     </div>
 
@@ -14,11 +15,20 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
+import { Track } from '@/store/types';
 
 export default Vue.extend({
-  components: {
-  }
+    props: {
+        track: {
+            type: Object as PropType<Track>,
+            required: true
+        },
+        id: {
+            type: Number,
+            required: true
+        }
+    },
 });
 </script>
 
@@ -27,7 +37,7 @@ export default Vue.extend({
 
     .track {
         width: 90%;
-        margin: 0 0 0 10px;
+        margin: 0 0 0 25px;
         padding: 7px;
         border-radius: 5px;
         transition: 0.2s;
@@ -35,23 +45,41 @@ export default Vue.extend({
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
 
         &:hover {
             cursor: pointer;
             background: rgb(53, 53, 53);
+            &::before {
+                content: '';
+                background: url(../assets/play.svg) no-repeat;
+                background-size: cover;
+                width: 35px;
+                height: 35px;
+                position: absolute;
+                left: 40px;
+                bottom: 15px;
+            }
         }
         
         &__wrapper {
             display: flex;
             flex-direction: row;
         }
+
+        &__id {
+            font-size: 22px;
+            margin: auto;
+        }
+
         &__img {
             width: 45px;
             height: 45px;
+            margin: 0 0 0 15px;
             @include shadow(0.2);
         }
         &__text {
-            margin: 0 0 0 15px;
+            margin: 0 0 0 20px;
         }
         &__title {
             margin: 0;

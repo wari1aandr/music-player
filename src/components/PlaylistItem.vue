@@ -1,6 +1,6 @@
 <template>
   <div class="playlist__item" @click="shareData()">
-    <img class="playlist__item-img" :src="require(`@/assets/${playlist.img}`)" alt="item__img">
+    <img class="playlist__item-img" :src="require(`@/assets/data/img/${playlist.img}`)" alt="item__img">
 
     <p class="playlist__item-title"> {{ playlist.title }} </p>
     <p class="playlist__item-text playlist__item-author"> {{ getAuthorLogin }} </p>

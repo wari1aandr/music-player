@@ -39,9 +39,6 @@ export const getters: GetterTree<PlaylistState, RootState> = {
     getAllPlaylists(state: PlaylistState) {
         return state.items;
     },
-    getCurrentPlaylist(state: PlaylistState, id) {
-        return state.items[id - 1];
-    },
     getAuthorLogin(state: PlaylistState) {
         return state.authorLogin;
     }
